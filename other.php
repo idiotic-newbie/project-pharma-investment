@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharma Manufacturing Business Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a5f3a 0%, #0d3d26 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .money-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.05;
+        }
+
+        .dollar {
+            position: absolute;
+            font-size: 40px;
+            animation: float 15s infinite ease-in-out;
+            color: #4ade80;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+        }
+
+        header {
+            position: relative;
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-bottom: 4px solid #fbbf24;
+        }
+
+        .coin-icon {
+            font-size: 60px;
+            animation: spin 3s linear infinite;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            color: #fbbf24;
+        }
+
+        .investment-tag {
+            display: inline-block;
+            background: #fbbf24;
+            color: #065f46;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(6, 95, 70, 0.95);
+            padding: 15px;
+            text-align: center;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        nav a {
+            color: #fbbf24;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #fbbf24;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            position: relative;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        h2 {
+            color: #fbbf24;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .product:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #fbbf24;
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.3);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .product h3 {
+            color: #fbbf24;
+            margin: 15px 0;
+            font-size: 1.5em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            color: #fbbf24;
+            font-size: 1.1em;
+        }
+
+        td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        tr:hover td {
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .machine-card {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid #fbbf24;
+            transition: all 0.3s;
+        }
+
+        .machine-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.3);
+        }
+
+        .machine-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            float: left;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .roi-calculator {
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #fbbf24;
+        }
+
+        .roi-calculator input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 2px solid #fbbf24;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .roi-calculator button {
+            width: 100%;
+            padding: 15px;
+            background: #fbbf24;
+            color: #065f46;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .roi-calculator button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.5);
+        }
+
+        .roi-result {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(251, 191, 36, 0.2);
+            border-radius: 10px;
+            font-size: 1.3em;
+            text-align: center;
+            display: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 20px;
+        }
+
+        ul li {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #fbbf24;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        ul li:hover {
+            background: rgba(251, 191, 36, 0.1);
+            transform: translateX(10px);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            color: #fbbf24;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 4px solid #fbbf24;
+        }
+
+        .profit-chart {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .chart-bar {
+            display: inline-block;
+            width: 60px;
+            background: linear-gradient(to top, #fbbf24, #fcd34d);
+            margin: 0 10px;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            animation: growBar 2s ease-out;
+        }
+
+        @keyframes growBar {
+            from { height: 0; }
+        }
+
+        .chart-label {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="money-bg">
+    <div class="dollar" style="left: 10%; top: 20%; animation-delay: 0s;"> </div>
+    <div class="dollar" style="left: 30%; top: 60%; animation-delay: 2s;">💵</div>
+    <div class="dollar" style="left: 60%; top: 30%; animation-delay: 4s;">💸</div>
+    <div class="dollar" style="left: 80%; top: 70%; animation-delay: 6s;"> </div>
+    <div class="dollar" style="left: 50%; top: 10%; animation-delay: 3s;">💵</div>
+</div>
+
+<header>
+    <div class="coin-icon"> </div>
+    <h1>Transform ₹12-15 Lakhs into a Pharma Empire</h1>
+    <p style="font-size: 1.3em; margin: 15px 0;">Manufacturing Iron Tablets • Multivitamins • Salicylic Acid Cream</p>
+    <div class="investment-tag">💎 Total Investment: ₹12–15 Lakhs 💎</div>
+</header>
+
+<nav>
+    <a href="#products">💊 Products</a>
+    <a href="#plan">📊 Business Plan</a>
+    <a href="#machines">⚙️ Machines</a>
+    <a href="#roi">💹 ROI Calculator</a>
+    <a href="#budget">  Budget</a>
+</nav>
+
+<section id="products">
+    <h2>💊 Your Money-Making Product Line</h2>
+    <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">
+        Three high-demand pharmaceutical products with proven market success and consistent revenue streams.
+    </p>
+
+    <div class="products">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?w=400" alt="Iron Tablets">
+            <h3>Iron Tablets</h3>
+            <p>Combat anemia and iron deficiency. Market size: ₹500+ crores annually in India alone!</p>
+            <p style="color: #fbbf24; font-weight: bold; margin-top: 10px;">Est. Profit Margin: 40-50%</p>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9?w=400" alt="Multivitamin">
+            <h3>Multivitamin Capsules</h3>
+            <p>Daily wellness supplements with recurring customer demand. The subscription model goldmine!</p>
+            <p style="color: #fbbf24; font-weight: bold; margin-top: 10px;">Est. Profit Margin: 45-55%</p>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" alt="Cream">
+            <h3>Salicylic Acid 1.5% Cream</h3>
+            <p>Dermatological solution for acne and skin conditions. Premium pricing, high margins!</p>
+            <p style="color: #fbbf24; font-weight: bold; margin-top: 10px;">Est. Profit Margin: 50-60%</p>
+        </div>
+    </div>
+</section>
+
+<section id="plan">
+    <h2>📊 Your Path to Pharma Profits</h2>
+    
+    <div style="background: rgba(251, 191, 36, 0.1); padding: 30px; border-radius: 15px; margin: 20px 0;">
+        <h3 style="color: #fbbf24; font-size: 1.8em; margin-bottom: 20px;">Why This Business Prints Money 💸</h3>
+        <p style="font-size: 1.1em; line-height: 1.8;">
+            Healthcare is recession-proof. People will always need medicines. Your three-product lineup targets different segments of this ₹1.4 lakh crore Indian pharmaceutical market. With shared machinery and optimized production, you're looking at breakeven within 18-24 months and exponential growth thereafter.
+        </p>
+    </div>
+
+    <!--- <div class="profit-chart">
+        <h3 style="color: #fbbf24; margin-bottom: 20px;">Projected Monthly Revenue Growth</h3>
+        <div class="chart-bar" style="height: 100px;">
+            <div class="chart-label">Month 1-3<br>₹2L</div>
+        </div>
+        <div class="chart-bar" style="height: 180px;">
+            <div class="chart-label">Month 4-6<br>₹4L</div>
+        </div>
+        <div class="chart-bar" style="height: 260px;">
+            <div class="chart-label">Month 7-12<br>₹6L</div>
+        </div>
+        <div class="chart-bar" style="height: 340px;">
+            <div class="chart-label">Year 2<br>₹10L+</div>
+        </div> --->
+    </div>
+</section>
+
+<section id="machines">
+    <h2>⚙️ Your Revenue-Generating Arsenal</h2>
+    
+    <div class="machine-card">
+        <img src="https://media.giphy.com/media/3o7btNhMBytxAM6YBa/giphy.gif" alt="Mixer" class="machine-img">
+        <h3 style="color: #fbbf24;">Rapid Mixer / Blender</h3>
+        <p><strong>Investment:</strong> ₹80,000 - ₹1,00,000</p>
+        <p>The foundation of your operation. Blends raw materials into perfect homogeneous mixtures for both tablets and capsules. One machine, double the output!</p>
+        <p style="color: #fbbf24; margin-top: 10px;"><strong>Feeds into:</strong> Granulator → Maximizes efficiency</p>
+    </div>
+
+    <div class="machine-card">
+        <img src="https://media.giphy.com/media/xT9IgEx8SbQ0teblUQ/giphy.gif" alt="Granulator" class="machine-img">
+        <h3 style="color: #fbbf24;">Wet / Dry Granulator</h3>
+        <p><strong>Investment:</strong> ₹2,00,000 - ₹2,50,000</p>
+        <p>Transforms powder into perfectly-sized granules. Critical for tablet hardness and capsule filling. This is where raw materials become profitable products!</p>
+        <p style="color: #fbbf24; margin-top: 10px;"><strong>Feeds into:</strong> Tablet Press & Capsule Filler</p>
+    </div>
+
+    <div class="machine-card">
+        <img src="https://media.giphy.com/media/l0HlMSVVw9zqmClLq/giphy.gif" alt="Tablet Press" class="machine-img">
+        <h3 style="color: #fbbf24;">Tablet Compression Machine</h3>
+        <p><strong>Investment:</strong> ₹2,50,000 - ₹3,00,000</p>
+        <p>Your money-printing press! Compresses 5,000-10,000 tablets per hour. With iron tablets alone, that's ₹50,000-₹80,000 worth of product daily!</p>
+        <p style="color: #fbbf24; margin-top: 10px;"><strong>Output:</strong> Up to 2.5 lakh tablets/day</p>
+    </div>
+
+    <div class="machine-card">
+        <img src="https://media.giphy.com/media/3oEjHWTuLfI3CFidhu/giphy.gif" alt="Capsule Filler" class="machine-img">
+        <h3 style="color: #fbbf24;">Capsule Filling Machine</h3>
+        <p><strong>Investment:</strong> ₹1,60,000 - ₹2,00,000</p>
+        <p>Automated capsule filling = higher profit margins. Multivitamins command premium prices. Fill 3,000-5,000 capsules hourly!</p>
+        <p style="color: #fbbf24; margin-top: 10px;"><strong>Revenue boost:</strong> 55% margins on multivitamins</p>
+    </div>
+
+    <div class="machine-card">
+        <img src="https://media.giphy.com/media/3o6ZsZdNs3yE5l6hWM/giphy.gif" alt="Cream Unit" class="machine-img">
+        <h3 style="color: #fbbf24;">Cream Manufacturing Vessel</h3>
+        <p><strong>Investment:</strong> ₹1,80,000 - ₹2,20,000</p>
+        <p>The premium product producer! Creams have the highest markup. Produces 200-300 tubes per batch with 60% profit margins!</p>
+        <p style="color: #fbbf24; margin-top: 10px;"><strong>Specialty:</strong> Topical formulations = luxury pricing</p>
+    </div>
+
+    <div class="machine-card">
+        <img src="https://media.giphy.com/media/3o7TKqm1mNujcBPSpy/giphy.gif" alt="Packing" class="machine-img">
+        <h3 style="color: #fbbf24;">Tube / Bottle Packing Machine</h3>
+        <p><strong>Investment:</strong> ₹2,00,000 - ₹2,50,000</p>
+        <p>The final touch that makes products retail-ready. Multi-purpose machine handles all your products = smart investment!</p>
+        <p style="color: #fbbf24; margin-top: 10px;"><strong>Efficiency:</strong> One machine, three product lines</p>
+    </div>
+</section>
+
+<section id="roi">
+    <h2>💹 Calculate Your Returns</h2>
+    
+    <div class="roi-calculator">
+        <h3 style="color: #fbbf24; margin-bottom: 20px; text-align: center;">ROI Calculator</h3>
+        <label>Monthly Production Capacity (Units):</label>
+        <input type="number" id="capacity" placeholder="e.g., 50000" value="50000">
+        
+        <label>Average Selling Price per Unit (₹):</label>
+        <input type="number" id="price" placeholder="e.g., 15" value="15">
+        
+        <label>Production Cost per Unit (₹):</label>
+        <input type="number" id="cost" placeholder="e.g., 7" value="7">
+        
+        <button onclick="calculateROI()">Calculate Profit  </button>
+        
+        <div class="roi-result" id="result"></div>
+    </div>
+</section>
+
+<section id="budget">
+    <h2>  Your Investment Breakdown</h2>
+    
+    <table>
+        <tr>
+            <th>Equipment / Expense</th>
+            <th>Cost Range (₹)</th>
+            <th>Revenue Potential</th>
+        </tr>
+        <tr>
+            <td>Mixers & Granulator</td>
+            <td>2,80,000 - 3,50,000</td>
+            <td>Foundation for all products</td>
+        </tr>
+        <tr>
+            <td>Tablet Press Machine</td>
+            <td>2,50,000 - 3,00,000</td>
+            <td>₹80K-1L daily output value</td>
+        </tr>
+        <tr>
+            <td>Capsule Filling Machine</td>
+            <td>1,60,000 - 2,00,000</td>
+            <td>₹50K-70K daily output value</td>
+        </tr>
+        <tr>
+            <td>Cream Manufacturing Unit</td>
+            <td>1,80,000 - 2,20,000</td>
+            <td>Highest margins: 60%</td>
+        </tr>
+        <tr>
+            <td>Packing Machines</td>
+            <td>2,00,000 - 2,50,000</td>
+            <td>Retail-ready = premium pricing</td>
+        </tr>
+        <tr>
+            <td>Quality Control Lab</td>
+            <td>80,000 - 1,00,000</td>
+            <td>Compliance = market access</td>
+        </tr>
+        <tr>
+            <td>Utilities & Setup</td>
+            <td>50,000 - 80,000</td>
+            <td>Operational efficiency</td>
+        </tr>
+        <tr style="background: rgba(251, 191, 36, 0.2);">
+            <th style="font-size: 1.3em;">Total Investment</th>
+            <th style="font-size: 1.3em;">₹12,00,000 - ₹15,00,000</th>
+            <th style="font-size: 1.1em;">Breakeven: 18-24 months</th>
+        </tr>
+    </table>
+
+    <div style="background: rgba(251, 191, 36, 0.15); padding: 25px; border-radius: 15px; margin-top: 30px; border: 2px solid #fbbf24;">
+        <h3 style="color: #fbbf24; text-align: center; margin-bottom: 15px;">💡 Smart Money Moves</h3>
+        <ul style="padding-left: 0;">
+            <li>✅ Shared machinery = 30% cost savings</li>
+            <li>✅ Three product lines = diversified revenue</li>
+            <li>✅ Scalable setup = easy capacity expansion</li>
+            <li>✅ Government subsidies available for pharma manufacturing</li>
+        </ul>
+    </div>
+</section>
+
+<section style="background: linear-gradient(135deg, #047857 0%, #065f46 100%); border: 3px solid #fbbf24;">
+    <h2>🏭 Space Requirements</h2>
+    <ul>
+        <li><strong>Production Floor:</strong> 400-500 sq. ft. (Your money-making zone)</li>
+        <li><strong>Raw Material Storage:</strong> 200 sq. ft. (Inventory = future profits)</li>
+        <li><strong>Finished Goods Warehouse:</strong> 200 sq. ft. (Ready-to-ship revenue)</li>
+        <li><strong>Quality Control Lab:</strong> 150 sq. ft. (Compliance = market credibility)</li>
+        <li><strong>Total Space:</strong> ~1000 sq. ft. (Compact yet powerful)</li>
+        <li><strong>Utilities Needed:</strong> 5-10 HP Power, Water Supply, Ventilation</li>
+    </ul>
+    <p style="text-align: center; margin-top: 20px; font-size: 1.2em; color: #fbbf24;">
+        <strong>Rent Budget:</strong> ₹15,000-25,000/month in industrial areas
+    </p>
+</section>
+
+<footer>
+    <h3 style="font-size: 2em; margin-bottom: 15px;"> Start Your Pharma Fortune Today!  </h3>
+    <p style="font-size: 1.2em;">₹12-15 Lakhs Investment → ₹50L-1Cr Annual Revenue Potential</p>
+    <p style="margin-top: 20px;">© 2025 Pharma Manufacturing Business Plan | Your Gateway to Healthcare Wealth</p>
+</footer>
+
+<script>
+    function calculateROI() {
+        const capacity = parseFloat(document.getElementById('capacity').value);
+        const price = parseFloat(document.getElementById('price').value);
+        const cost = parseFloat(document.getElementById('cost').value);
+        
+        if (capacity && price && cost) {
+            const revenue = capacity * price;
+            const totalCost = capacity * cost;
+            const profit = revenue - totalCost;
+            const margin = ((profit / revenue) * 100).toFixed(2);
+            
+            const result = document.getElementById('result');
+            result.style.display = 'block';
+            result.innerHTML = `
+                <div style="font-size: 1.5em; color: #fbbf24; margin-bottom: 10px;">  Monthly Profit: ₹${profit.toLocaleString('en-IN')}</div>
+                <div>📊 Revenue: ₹${revenue.toLocaleString('en-IN')}</div>
+                <div>💸 Total Costs: ₹${totalCost.toLocaleString('en-IN')}</div>
+                <div style="font-size: 1.3em; margin-top: 15px; color: #4ade80;">Profit Margin: ${margin}%</div>
+                <div style="margin-top: 15px; font-size: 1.1em;">📈 Annual Profit Projection: ₹${(profit * 12).toLocaleString('en-IN')}</div>
+            `;
+        }
+    }
+</script>
+
+</body>
+</html>
